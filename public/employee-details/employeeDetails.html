@@ -1,0 +1,31 @@
+<h2 id="heading">Employee Details</h2>
+
+ <table class="employeeTable">
+        <thead>
+            <th>Employee's ID</th>
+            <th>Employee's Name</th>
+            <th>Employee's Phone Number</th>
+            <th>Action</th>
+            <th>&nbsp;</th>
+        </thead>
+        <tbody>
+          <tr>
+            <td><input type="number" ng-model="empCtrl.newEmployee.id"></td>
+            <td><input type="text" ng-model="empCtrl.newEmployee.name"></td>
+            <td><input type="number" ng-model="empCtrl.newEmployee.pNumber"></td>
+            <td><button type="button" class="btn btn-success" ng-click="empCtrl.addData()">Add</button></td>
+            <td><button type="button" class="btn btn-info" ng-click="empCtrl.updateData()">Update</button></td>
+          </tr>
+          <tr ng-repeat = "employee in empCtrl.employeeDetail">
+              <td>{{employee.id}}</td>
+              <td>{{employee.name}}</td>
+              <td>{{employee.pNumber}}</td>
+              <td><button type="button" class="btn btn-default" ng-click="empCtrl.editData(employee._id)">Edit</button></td>
+              <td><button type="button" class="btn btn-danger" ng-click="empCtrl.deleteData(employee._id)">Delete</button></td>
+          </tr>
+        </tbody>
+    </table>
+
+    <div ng-if="empCtrl.error" class="error-message">
+      Please Enter Required Credentials (Name and ID)
+    </div>
